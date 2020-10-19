@@ -19,7 +19,7 @@ const Search = () => {
                 origin: "*",
                 apiKey: "c9cf6dcf2ca94080a3976b3e1280a181",
                 format: "json",
-                number:25,
+                number:12,
                 query: term
               }
             });
@@ -43,6 +43,9 @@ const Search = () => {
 
   }, [term]);
 
+  //try with target acalories
+  // https://rapidapi.com/spoonacular/api/recipe-food-nutrition?endpoint=55e1b1f0e4b0034a968f7387
+
 
 
 
@@ -63,7 +66,7 @@ const Search = () => {
       <Card.Content extra>
         <a>
           <Icon name='user' />
-          22 Friends
+          {item.id}
         </a>
       </Card.Content>
     </Card>
@@ -90,7 +93,9 @@ const Search = () => {
         className = "input" / >
       </div>
       <div className="ui celled list">
+      {console.log(renderedResults)}
        {renderedResults}
+
       </div>
     </div>
   )
