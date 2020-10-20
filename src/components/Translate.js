@@ -6,11 +6,11 @@ import Convert from "./Convert"
 
 const options = [
   {
-    label: "Cheddar",
-    value: "1023264"
+    label: "Beef",
+    value: "190464"
   },
   {
-    label: "Carrots",
+    label: "Blueberries",
     value: "1003464"
   },
   {

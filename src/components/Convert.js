@@ -14,7 +14,9 @@ const Convert = ({product}) => {
     const { data } =  await axios.get("https://api.spoonacular.com/recipes/"+ product.value +"/similar", {
         params: {
           origin: "*",
-          apiKey: "c9cf6dcf2ca94080a3976b3e1280a181"
+          apiKey: "c9cf6dcf2ca94080a3976b3e1280a181",
+          number:4
+
         }
       })
       setUpdated(data);
