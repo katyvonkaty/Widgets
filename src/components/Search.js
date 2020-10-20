@@ -19,7 +19,7 @@ const Search = () => {
                 origin: "*",
                 apiKey: "c9cf6dcf2ca94080a3976b3e1280a181",
                 format: "json",
-                number:12,
+                number:6,
                 query: term
               }
             });

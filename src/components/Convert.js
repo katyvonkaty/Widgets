@@ -3,9 +3,11 @@ import React, {
   useEffect
 } from "react";
 import axios from "axios"
+import { Card, Icon, Image } from 'semantic-ui-react'
 
-const Convert = ({product,text}) => {
-  const [updated, setUpdated] = useState("")
+
+const Convert = ({product}) => {
+  const [updated, setUpdated] = useState([])
 
   useEffect(() => {
     const updateProducts = async() => {
@@ -15,17 +17,42 @@ const Convert = ({product,text}) => {
           apiKey: "c9cf6dcf2ca94080a3976b3e1280a181"
         }
       })
-      setUpdated(data[0].title);
+      setUpdated(data);
     }
-
     updateProducts();
 
-  }, [product, text])
+  }, [product])
+
+  const updatedProduct = updated.map( (item) => {
+    return (
+      <Card>
+      <Card.Header>{item.title}</Card.Header>
+        <Card.Content key={item.id}>
+        </Card.Content>
+        <Card.Description>
+        <p> Ready In </p> {item.readyInMinutes} | <p> Servings: </p>{item.servings}
+         </Card.Description>
+         <Card.Content extra>
+           <a href={item.sourceURL}>
+            <p> Click Here </p>
+           </a>
+         </Card.Content>
+      </Card>
+    )
+
+  });
+
+
+
+
   return (
     <div>
-    <h1> {updated} </h1>
+    {updatedProduct}
     </div>
   )
 }
 
 export default Convert
+
+
+// {updated.map (item => <div> {item.title} </div>)}

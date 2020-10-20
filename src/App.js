@@ -6,26 +6,12 @@ import Dropdown from "./components/Dropdown"
 
 
 
-const options = [
-  {
-    label: "red",
-    value:"red"
-  }, {
-    label: "green",
-    value: "green"
-  }, {
-    label: "blue",
-    value: "blue"
-  }
-]
-
-
 function App() {
 
 
   return (
     <div className="App">
-
+    <Search />
     <Translate />
     </div>
   );
