@@ -3,7 +3,7 @@ import React, {
   useEffect
 } from 'react';
 import axios from 'axios'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Rating, Icon, Image } from 'semantic-ui-react'
 //
 //
 const Search = () => {
@@ -14,16 +14,19 @@ const Search = () => {
 
   useEffect(() => {
     const search = async () => {
-      const { data  } = await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
+      const { data  } = await axios.get("https://api.edamam.com/search", {
               params: {
                 origin: "*",
-                apiKey: "c9cf6dcf2ca94080a3976b3e1280a181",
+                app_key: "da96a3891d33624da41d6f384f8e8f97",
                 format: "json",
-                number:4,
-                query: term
+                app_id:"9c09b038",
+                q: term,
+                from:14
+
               }
             });
-            setResults(data.results)
+            // console.log(data.hits);
+            setResults(data.hits)
           };
 
           if (term && !results) {
@@ -43,42 +46,33 @@ const Search = () => {
 
   }, [term]);
 
-  //try with target acalories
-  // https://rapidapi.com/spoonacular/api/recipe-food-nutrition?endpoint=55e1b1f0e4b0034a968f7387
-
-
-
-
-  const renderedResults = results.map( (item) => {
-    return (
-
-      <Card>
-      <Image src={item.image} wrapped ui={false} />
-      <Card.Content key={item.id}>
-        <Card.Header>{item.title}</Card.Header>
-        <Card.Meta>
-          <span className='date'>Joined in 2015</span>
-        </Card.Meta>
-        <Card.Description>
-          Matthew is a musician living in Nashville.
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <a>
-          <Icon name='user' />
-          {item.id}
-        </a>
-      </Card.Content>
-    </Card>
-
-
-    )
-
-  });
-
-
-
-
+  const renderItems = () => {
+      return (
+        <div className="container ui three stackable cards">
+          {results.map(card => (
+            <div className="ui fluid card " key={card._id}>
+            <div className="header">
+              <h2>{card.recipe.label}</h2>
+            </div>
+              <div className="content">
+                <img className="ui large image" src={card.recipe.image} alt="" />
+              </div>
+              <div className="flex-row">
+                <div className="content">
+                <a href={card.recipe.url}> View Recipe </a> <br />
+                  <b> Source </b>:  {card.recipe.source} <br />
+                  <b> Health </b>: {card.recipe.healthLabels}<br />
+                  <b> Calories </b>:{card.recipe.calories}<br />
+                </div>
+                <hr />
+                Rate Recipe:
+                <Rating icon='star' defaultRating={3} maxRating={5} />
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    };
 
 
 
@@ -87,15 +81,13 @@ const Search = () => {
     <div className = "ui container form" >
       <div className = "field" >
         <label > Enter Term < /label>
-        < input
+        <input
         value = {term}
         onChange = { e => setTerm(e.target.value)}
-        className = "input" / >
+        className = "input" />
       </div>
       <div className="ui celled list">
-      {console.log(renderedResults)}
-       {renderedResults}
-
+      {renderItems()}
       </div>
     </div>
   )
@@ -104,71 +96,71 @@ const Search = () => {
 export default Search
 
 
-//slip advice api
 
 
-  // useEffect(() => {
-  //   const search = async () => {
-  //     const { data  } = await axios.get("	https://api.adviceslip.com/advice", {
-  //       params: {
-  //         list: "search",
-  //         origin: "*",
-  //         format: "json"        }
-  //     });
-  //     setResults(data.slip)
+  // const renderItems = () => {
+  //     return (
+  //       <div className="container ui three doubling stackable cards">
+  //         {results.map(card => (
+  //           <div className="ui fluid card " key={card._id}>
+  //             <div className="content">
+  //               <img className="ui medium image" src={card.image} alt="" />
+  //             </div>
+  //             <div className="flex-row">
+  //               <div className="header">
+  //                 <h3>{card.title}</h3>
+  //               </div>
+  //               <div className="meta">
+  //                 <i className="dollar sign icon" />
+  //                 {card.price}
+  //               </div>
+  //             </div>
+  //           </div>
+  //         ))}
+  //       </div>
+  //     );
   //   };
-  //       search()
-  //
-  // }, [term]);
-  //
+    // render() {
+    //   return <div className="grid row">{renderItems()}</div>;
+    // }
 
+  // const renderedResults = () => {
+  //   return (
+  //     <Card>
+  //     {results.map(item => (
+  //       <Image src={item.image} wrapped ui={false} />
+  //     ))}
+  //     </Card>
+  //   )
+  // }
 
-  // return (
-  //   <div className = "ui container form" >
-  //     <div className = "field" >
-  //       <label > Enter Term < /label>
-  //       < input
-  //       value = {term}
-  //       onChange = { e => setTerm(e.target.value)}
-  //       className = "input" / >
-  //     </div>
-  //     <div className="ui celled list">
-  //      {results.advice}
-  //     </div>
-  //   </div>
-  // )
-// }
-//
-// const Search = () => {
-//
-//   const [term, setTerm] = useState("icing")
-//   const [results, setResults] = useState([])
-//
-//
-//   useEffect(() => {
-//     const search = async () => {
-//       const { data  } = await axios.get("	https://api.adviceslip.com/advice", {
-//         params: {
-//           list: "search",
-//           origin: "*",
-//           format: "json",
-//           query: term
-//         }
-//       });
-//       setResults(data.slip)
-//     };
-//
-//
-//
-//         const timeoutId = setTimeout( () => {
-//               if(term) {
-//                 search()
-//               }
-//           },3000)
-//
-//           return () => {
-//             clearTimeout(timeoutId);
-//           };
-//
-//
-//   }, [term]);
+  // const renderedResults = results.map( (item) => {
+  //   return (
+  //
+  //     <Card>
+  //     <Image src={item.image} wrapped ui={false} />
+  //     <Card.Content key={item.id}>
+  //       <Card.Header>{item.title}</Card.Header>
+  //       <Card.Meta>
+  //         <span className='date'>Joined in 2015</span>
+  //       </Card.Meta>
+  //       <Card.Description>
+  //         Matthew is a musician living in Nashville.
+  //       </Card.Description>
+  //     </Card.Content>
+  //     <Card.Content extra>
+  //       <a>
+  //         <Icon name='user' />
+  //         {item.id}
+  //       </a>
+  //     </Card.Content>
+  //   </Card>
+  //
+  //
+  //   )
+  //
+  // });
+  //
+  //
+  //
+  //

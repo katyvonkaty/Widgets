@@ -32,11 +32,22 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <style>
-    .ui.card {
-      width: 20% !important;
-      margin-left: 20px;
-      float: left !important;
+    .ui.three.cards>.card  {
+      padding:20px !important;
+      border-radius:10px;
       border: 1px solid #eee;
+      }
+
+      .ui.card>.content, .ui.cards>.card>.content {
+        border-top: none !important;
+      }
+
+      .ui.card .content img, .ui.cards>.card .content img {
+        border-radius:10px !important;
+      }
+
+      h2 {
+        text-align:center;
       }
 </style>
     <!--
