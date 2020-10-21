@@ -20,8 +20,7 @@ const Search = () => {
                 app_key: "da96a3891d33624da41d6f384f8e8f97",
                 format: "json",
                 app_id:"9c09b038",
-                q: term,
-                from:14
+                q: term
 
               }
             });
@@ -46,13 +45,13 @@ const Search = () => {
 
   }, [term]);
 
-  const renderItems = () => {
+  const renderRecipes = () => {
       return (
         <div className="container ui three stackable cards">
           {results.map(card => (
             <div className="ui fluid card " key={card._id}>
             <div className="header">
-              <h2>{card.recipe.label}</h2>
+              <h2>{card.recipe.label}'s {card.recipe.label}</h2>
             </div>
               <div className="content">
                 <img className="ui large image" src={card.recipe.image} alt="" />
@@ -87,7 +86,7 @@ const Search = () => {
         className = "input" />
       </div>
       <div className="ui celled list">
-      {renderItems()}
+      {renderRecipes()}
       </div>
     </div>
   )

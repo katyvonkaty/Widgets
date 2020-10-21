@@ -7,20 +7,20 @@ import { Grid, Card, Icon, Image } from 'semantic-ui-react'
 
 
 const Convert = ({product}) => {
-  const [updated, setUpdated] = useState("")
+  const [updated, setUpdated] = useState([])
 
   useEffect(() => {
     const updateProducts = async() => {
-    const { data } =  await axios.get("https://api.spoonacular.com/recipes/"+ product.value +"/information", {
+    const { data } =  await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
         params: {
           origin: "*",
           apiKey: "c9cf6dcf2ca94080a3976b3e1280a181",
-          number:4
+          number:12,
+          query:product.label
 
         }
       })
-      setUpdated(data);
-      console.log(data);
+      setUpdated(data.results);
     }
     updateProducts();
 
@@ -28,34 +28,32 @@ const Convert = ({product}) => {
 
 
 
-  return (
-    <div className = "ui container">
-    <Grid>
-      <Grid.Row columns={4}>
-        <Grid.Column>
-            <Card>
-                <Image class="ui large" src= {updated.image} wrapped ui={false} />
-                  <Card.Content>
-                    <Card.Header>{updated.title}</Card.Header>
-                    <Card.Meta>{updated.cuisines}</Card.Meta>
-                    <Card.Description>
-                      <b> Ready in: </b> {updated.readyInMinutes} <br/>
-                      <b> Price per serving: </b>$ {updated.pricePerServing} <br />
-                      <b> Servings: </b> {updated.servings} <br />
-                    </Card.Description>
-                  </Card.Content>
-                  <Card.Content extra>
-                    <a href={updated.sourceURL}>
-                    View Recipe
-                    </a>
-                  </Card.Content>
-              </Card>
-            </Grid.Column>
-        </Grid.Row>
-    </Grid>
-    </div>
+  const renderItems = () => {
+      return (
+        <div className="container ui three stackable cards">
+          {updated.map(card => (
+            <div className="ui fluid card " key={card._id}>
+            <div className="header">
+              <h2>{card.title}'s</h2>
+            </div>
+              <div className="content">
+                <img className="ui large image" src={card.image} alt="" />
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    };
 
-  )
-}
+
+      return (
+        <div className = "ui container form" >
+        {renderItems()}
+
+
+        </div>
+      )
+    }
+
 
 export default Convert
