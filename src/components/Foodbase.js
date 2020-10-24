@@ -33,6 +33,7 @@ const renderFoods = () => {
           <h2>{item.food.label}</h2>
             <img src = {item.food.image} />
             <h4>Category: {item.food.category}</h4>
+            <p> Servings: {item.food.servingsPerContainer} </p>
             <h4>Fat:{item.food.nutrients.FAT} | Energy:{item.food.nutrients.ENERC_KCAL} | Cho:{item.food.nutrients.CHOCDF}</h4>
 
         </div>

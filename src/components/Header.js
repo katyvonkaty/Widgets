@@ -15,6 +15,7 @@ export default class Header extends Component {
     return (
       <div>
         <Menu pointing>
+        <img class="logo" src="https://cdn4.vectorstock.com/i/1000x1000/18/83/food-logo-designs-with-spoon-and-fork-vector-24431883.jpg"/>
           <Menu.Item>
             <Link href="/" className="item">
               Search
@@ -28,12 +29,12 @@ export default class Header extends Component {
           </Menu.Item>
 
           <Menu.Item>
-            <Link href="/translate" className="item">
-              Nutrition
+            <Link href="/foodbase" className="item">
+              Database
             </Link>
           </Menu.Item>
 
-    
+
 
           <Menu.Menu position='right'>
             <Menu.Item>

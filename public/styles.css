@@ -6,16 +6,28 @@ margin-top:30px !important;
   padding:20px !important;
   border-radius:10px;
   border: 1px solid #eee;
-  }
+}
 
-  .ui.card>.content, .ui.cards>.card>.content {
-    border-top: none !important;
-  }
+.ui.card>.content, .ui.cards>.card>.content {
+  border-top: none !important;
+}
 
-  .ui.card .content img, .ui.cards>.card .content img {
-    border-radius:10px !important;
-  }
+.ui.card .content img, .ui.cards>.card .content img {
+  border-radius:10px !important;
+}
 
-  h2 {
-    text-align:center;
+.logo {
+  width:5%;
+  float:left;
+}
+
+h2 {
+  text-align:center;
+}
+
+img {
+    margin: auto;
+    display: block;
+    width:50%;
+    border-radius: 50%;
   }
