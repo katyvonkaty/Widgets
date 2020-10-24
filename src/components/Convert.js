@@ -11,7 +11,7 @@ const Convert = ({product}) => {
 
   useEffect(() => {
     const updateProducts = async() => {
-    const { data } =  await axios.get("https://api.spoonacular.com/food/search", {
+    const { data } =  await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
         params: {
           origin: "*",
           apiKey: "c9cf6dcf2ca94080a3976b3e1280a181",
@@ -48,8 +48,8 @@ const Convert = ({product}) => {
 
       return (
         <div className = "ui container form" >
-        {renderItems()}
 
+          {renderItems()}
 
         </div>
       )
