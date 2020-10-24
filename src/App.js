@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Accordion from "./components/Accordion"
 import Search from "./components/Search"
+import Foodbase from "./components/Foodbase"
 import Translate from "./components/Translate"
 import Dropdown from "./components/Dropdown"
 import Route from "./components/Route"
@@ -34,6 +35,9 @@ function App() {
     <Header />
       <Route path="/">
         <Search />
+      </Route>
+      <Route path="/foodbase">
+        <Foodbase />
       </Route>
       <Route path="/translate">
         <Translate />

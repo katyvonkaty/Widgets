@@ -1,3 +1,21 @@
 .ui.form{
 margin-top:30px !important;
 }
+
+.ui.three.cards>.card  {
+  padding:20px !important;
+  border-radius:10px;
+  border: 1px solid #eee;
+  }
+
+  .ui.card>.content, .ui.cards>.card>.content {
+    border-top: none !important;
+  }
+
+  .ui.card .content img, .ui.cards>.card .content img {
+    border-radius:10px !important;
+  }
+
+  h2 {
+    text-align:center;
+  }
