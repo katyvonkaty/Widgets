@@ -6,20 +6,7 @@ import Dropdown from "./components/Dropdown"
 import Route from "./components/Route"
 import Header from "./components/Header"
 
-const items = [
-  {
-    title: "what is a cockapoo",
-    content:" an angel"
-  },
-  {
-      title: "what is a cockapoo",
-      content:" an angel"
-    },
-    {
-      title: "what is a cockapoo",
-      content:" an angel"
-    }
-]
+
 
 const options = [
   {
@@ -46,9 +33,6 @@ function App() {
     <div className="App">
     <Header />
       <Route path="/">
-        <Accordion items={items} />
-      </Route>
-      <Route path="/search">
         <Search />
       </Route>
       <Route path="/translate">

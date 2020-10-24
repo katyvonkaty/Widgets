@@ -3,12 +3,12 @@ import React, {
   useEffect
 } from 'react';
 import axios from 'axios'
-import { Card, Rating, Icon, Image } from 'semantic-ui-react'
+import { Card, Rating, Icon,Input, Image } from 'semantic-ui-react'
 //
 //
 const Search = () => {
 
-  const [term, setTerm] = useState("cake")
+  const [term, setTerm] = useState("Search...")
   const [results, setResults] = useState([])
 
 
@@ -79,8 +79,7 @@ const Search = () => {
   return (
     <div className = "ui container form" >
       <div className = "field" >
-        <label > Enter Term < /label>
-        <input
+        <Input icon='search'
         value = {term}
         onChange = { e => setTerm(e.target.value)}
         className = "input" />
@@ -93,73 +92,3 @@ const Search = () => {
 }
 
 export default Search
-
-
-
-
-  // const renderItems = () => {
-  //     return (
-  //       <div className="container ui three doubling stackable cards">
-  //         {results.map(card => (
-  //           <div className="ui fluid card " key={card._id}>
-  //             <div className="content">
-  //               <img className="ui medium image" src={card.image} alt="" />
-  //             </div>
-  //             <div className="flex-row">
-  //               <div className="header">
-  //                 <h3>{card.title}</h3>
-  //               </div>
-  //               <div className="meta">
-  //                 <i className="dollar sign icon" />
-  //                 {card.price}
-  //               </div>
-  //             </div>
-  //           </div>
-  //         ))}
-  //       </div>
-  //     );
-  //   };
-    // render() {
-    //   return <div className="grid row">{renderItems()}</div>;
-    // }
-
-  // const renderedResults = () => {
-  //   return (
-  //     <Card>
-  //     {results.map(item => (
-  //       <Image src={item.image} wrapped ui={false} />
-  //     ))}
-  //     </Card>
-  //   )
-  // }
-
-  // const renderedResults = results.map( (item) => {
-  //   return (
-  //
-  //     <Card>
-  //     <Image src={item.image} wrapped ui={false} />
-  //     <Card.Content key={item.id}>
-  //       <Card.Header>{item.title}</Card.Header>
-  //       <Card.Meta>
-  //         <span className='date'>Joined in 2015</span>
-  //       </Card.Meta>
-  //       <Card.Description>
-  //         Matthew is a musician living in Nashville.
-  //       </Card.Description>
-  //     </Card.Content>
-  //     <Card.Content extra>
-  //       <a>
-  //         <Icon name='user' />
-  //         {item.id}
-  //       </a>
-  //     </Card.Content>
-  //   </Card>
-  //
-  //
-  //   )
-  //
-  // });
-  //
-  //
-  //
-  //
