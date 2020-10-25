@@ -14,8 +14,10 @@ export default class Header extends Component {
 
     return (
       <div>
-        <Menu pointing>
-        <img class="logo" src="https://cdn4.vectorstock.com/i/1000x1000/18/83/food-logo-designs-with-spoon-and-fork-vector-24431883.jpg"/>
+      <Menu stackable>
+        <Menu.Item>
+          <img src='https://react.semantic-ui.com/logo.png' />
+        </Menu.Item>
           <Menu.Item>
             <Link href="/" className="item">
               Search

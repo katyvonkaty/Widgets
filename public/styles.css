@@ -8,12 +8,25 @@ margin-top:30px !important;
   border: 1px solid #eee;
 }
 
+.header, .flex-row {
+  padding:10px;
+}
+
+a {
+  color:black !important;
+}
+
 .ui.card>.content, .ui.cards>.card>.content {
   border-top: none !important;
 }
 
 .ui.card .content img, .ui.cards>.card .content img {
-  border-radius:10px !important;
+  border-radius: 5px 5px 0px 0px !important;
+  width:100vw;
+}
+
+.ui.card>.content, .ui.cards>.card>.content {
+  padding: 0 !important;
 }
 
 .logo {
