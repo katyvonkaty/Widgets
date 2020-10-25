@@ -20,8 +20,9 @@ const Search = () => {
                 app_key: "da96a3891d33624da41d6f384f8e8f97",
                 format: "json",
                 app_id:"9c09b038",
-                q: term
-
+                q: term,
+                from:0,
+                to:12
               }
             });
             // console.log(data.hits);
