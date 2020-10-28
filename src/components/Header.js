@@ -16,8 +16,12 @@ export default class Header extends Component {
       <div>
       <Menu stackable>
         <Menu.Item>
-          <img src='https://react.semantic-ui.com/logo.png' />
+          <img class="logo" src='logo.png' />
+          <strong className="pasta"> <p> Pastafarian </p> </strong>
         </Menu.Item>
+
+
+          <Menu.Menu position='right'>
           <Menu.Item>
             <Link href="/" className="item">
               Search
@@ -35,13 +39,6 @@ export default class Header extends Component {
               Database
             </Link>
           </Menu.Item>
-
-
-
-          <Menu.Menu position='right'>
-            <Menu.Item>
-              <Input icon='search' placeholder='Search...' />
-            </Menu.Item>
           </Menu.Menu>
         </Menu>
 

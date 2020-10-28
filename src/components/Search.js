@@ -8,7 +8,7 @@ import { Card, Grid, Segment, Rating, Icon,Input, Image } from 'semantic-ui-reac
 //
 const Search = () => {
 
-  const [term, setTerm] = useState("Search...")
+  const [term, setTerm] = useState("Search Pasta...")
   const [results, setResults] = useState([])
   let count = ""
 
